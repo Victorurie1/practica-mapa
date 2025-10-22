@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Conceptual - VPS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .title {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .concept-map {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .central-node {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin: 0 auto;
+            max-width: 500px;
+            width: 100%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
+        .central-node h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .central-node p {
+            color: white;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .branches {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .branch {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .branch:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .branch h3 {
+            color: #667eea;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f5576c;
+        }
+
+        .branch-content {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .branch-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .branch-content li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .branch-content li:before {
+            content: "▸";
+            position: absolute;
+            left: 0;
+            color: #f5576c;
+            font-weight: bold;
+        }
+
+        .difference-item {
+            background: #f8f9fa;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .difference-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .use-case {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            color: #333;
+        }
+
+        .use-case h4 {
+            color: #764ba2;
+            margin-bottom: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 1.8em;
+            }
+
+            .central-node h2 {
+                font-size: 1.5em;
+            }
+
+            .branches {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .connector {
+            width: 3px;
+            height: 30px;
+            background: white;
+            margin: 0 auto;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">🖥️ Mapa Conceptual: VPS (Servidor Privado Virtual)</h1>
+        
+        <div class="concept-map">
+            <!-- Nodo Central -->
+            <div class="central-node">
+                <h2>VPS - Virtual Private Server</h2>
+                <p>Es un servidor virtualizado que funciona como un servidor dedicado dentro de un servidor físico más grande. Utiliza tecnología de virtualización para dividir un servidor físico en múltiples servidores virtuales independientes, cada uno con sus propios recursos garantizados (CPU, RAM, almacenamiento).</p>
+            </div>
+
+            <div class="connector"></div>
+
+            <!-- Ramas -->
+            <div class="branches">
+                <!-- Diferencias con Hosting Compartido -->
+                <div class="branch">
+                    <h3>📊 Diferencias con Hosting Compartido</h3>
+                    <div class="branch-content">
+                        <div class="difference-item">
+                            <strong>Recursos:</strong>
+                            VPS: Recursos dedicados y garantizados. Hosting Compartido: Recursos compartidos con otros sitios.
+                        </div>
+                        <div class="difference-item">
+                            <strong>Control y Acceso:</strong>
+                            VPS: Acceso root completo, control total del servidor. Hosting Compartido: Acceso limitado, configuración restringida.
+                        </div>
+                        <div class="difference-item">
+                            <strong>Rendimiento:</strong>
+                            VPS: Rendimiento consistente y predecible. Hosting Compartido: Puede verse afectado por otros usuarios.
+                        </div>
+                        <div class="difference-item">
+                            <strong>Personalización:</strong>
+                            VPS: Instalación de cualquier software compatible. Hosting Compartido: Software preconfigurado limitado.
+                        </div>
+                        <div class="difference-item">
+                            <strong>Costo:</strong>
+                            VPS: Más costoso pero mejor relación precio-rendimiento. Hosting Compartido: Económico, ideal para principiantes.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usos Comunes: Aplicaciones Web -->
+                <div class="branch">
+                    <h3>🌐 Usos: Aplicaciones Web</h3>
+                    <div class="branch-content">
+                        <div class="use-case">
+                            <h4>Hosting de Sitios Web</h4>
+                            <p>Alojar múltiples sitios web con alto tráfico, tiendas en línea con WooCommerce o Magento, y portales corporativos que requieren recursos dedicados.</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Aplicaciones SaaS</h4>
+                            <p>Desplegar aplicaciones Software as a Service, APIs REST, microservicios, y plataformas personalizadas de gestión empresarial.</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Bases de Datos</h4>
+                            <p>Servidores de bases de datos MySQL, PostgreSQL, MongoDB independientes con respaldos automatizados.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usos Comunes: Seguridad -->
+                <div class="branch">
+                    <h3>🔒 Usos: Seguridad y Privacidad</h3>
+                    <div class="branch-content">
+                        <div class="use-case">
+                            <h4>Servidor VPN Privado</h4>
+                            <p>Configurar tu propia VPN para navegación segura, encriptación de datos, y acceso remoto seguro a recursos empresariales.</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Firewall y Proxy</h4>
+                            <p>Implementar firewalls personalizados, servidores proxy para filtrado de contenido, y sistemas de detección de intrusos (IDS/IPS).</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Almacenamiento Seguro</h4>
+                            <p>Servidor de archivos privado en la nube, respaldos encriptados, y almacenamiento de datos sensibles con control total.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usos Comunes: Desarrollo y Pruebas -->
+                <div class="branch">
+                    <h3>🧪 Usos: Desarrollo y Pruebas</h3>
+                    <div class="branch-content">
+                        <div class="use-case">
+                            <h4>Entornos de Desarrollo</h4>
+                            <p>Crear ambientes de desarrollo, staging y producción, laboratorios de prueba aislados, y entornos de integración continua (CI/CD).</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Testing de Software</h4>
+                            <p>Pruebas de carga y rendimiento, testing de compatibilidad en diferentes sistemas operativos, y simulación de escenarios de producción.</p>
+                        </div>
+                        <div class="use-case">
+                            <h4>Aprendizaje</h4>
+                            <p>Practicar administración de servidores Linux/Windows, aprender Docker y Kubernetes, y experimentar con nuevas tecnologías sin riesgos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Ventajas Adicionales -->
+                <div class="branch">
+                    <h3>✨ Ventajas Adicionales</h3>
+                    <div class="branch-content">
+                        <ul>
+                            <li><strong>Escalabilidad:</strong> Fácil actualización de recursos (RAM, CPU, almacenamiento) según necesidades</li>
+                            <li><strong>Aislamiento:</strong> Cada VPS opera independientemente sin afectar a otros</li>
+                            <li><strong>IP Dedicada:</strong> Dirección IP exclusiva para tu servidor</li>
+                            <li><strong>Snapshots:</strong> Crear copias de seguridad instantáneas del sistema completo</li>
+                            <li><strong>Reinicio Independiente:</strong> Reiniciar el servidor sin afectar a otros usuarios</li>
+                            <li><strong>Mejor para SEO:</strong> IP dedicada puede mejorar posicionamiento web</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Consideraciones -->
+                <div class="branch">
+                    <h3>⚠️ Consideraciones Importantes</h3>
+                    <div class="branch-content">
+                        <ul>
+                            <li><strong>Conocimientos Técnicos:</strong> Requiere experiencia en administración de servidores</li>
+                            <li><strong>Mantenimiento:</strong> Responsable de actualizaciones, seguridad y respaldos</li>
+                            <li><strong>Monitoreo:</strong> Necesario vigilar recursos y rendimiento constantemente</li>
+                            <li><strong>Seguridad:</strong> Configurar firewalls, SSL, y medidas de protección</li>
+                            <li><strong>Costo vs Beneficio:</strong> Evaluar si tus necesidades justifican un VPS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
